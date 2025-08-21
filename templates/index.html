@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Smart Text Improver — Auto-correct & Readability</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <header>
+    <h1>📝 Smart Text Improver</h1>
+    <p>Auto-correct spelling, improve grammar, and check readability instantly.</p>
+  </header>
+
+  <main>
+    <section class="card">
+      <h3>Input</h3>
+      <textarea id="input" placeholder="Type or paste your text here…"></textarea>
+      <div class="row">
+        <button class="btn" id="btnCorrect">Correct (Ctrl+Enter)</button>
+        <button class="btn secondary" id="btnClear">Clear</button>
+        <button class="btn ghost" id="btnCopy">Copy corrected</button>
+        <button class="btn ghost" id="btnDownload">Download .txt</button>
+        <div class="spacer"></div>
+        <input id="dictWord" type="text" placeholder="Add word to dictionary">
+        <button class="btn ghost" id="addWordBtn">Add</button>
+      </div>
+    </section>
+
+    <section class="grid">
+      <div class="card">
+        <h3>Output</h3>
+        <div id="outText" class="out"></div>
+        <div id="badges" class="badges"></div>
+        <div id="extraMetrics" class="extra-metrics hidden">
+          <span class="badge grammar">Grammar Score: <b id="grammarScore">0%</b></span>
+          <span class="badge readability">Readability Index: <b id="readabilityIndex">0</b></span>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>Suggestions</h3>
+        <div id="suggestions" class="muted">Run correction to see suggestions.</div>
+        <div class="divider"></div>
+
+        <h3>Correct a .txt file</h3>
+        <input type="file" id="fileInput" accept=".txt">
+        <div class="row">
+          <button class="btn" id="btnFileCorrect">Upload & Correct</button>
+          <button class="btn ghost" id="btnFileDownload">Download Corrected</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
